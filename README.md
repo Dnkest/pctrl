@@ -39,8 +39,9 @@ List all controls that the authenticated user owns. You can also filter the resu
 #### Parameters
 Any of the attribute names. Examples:
 ```
-/controls?name=Single-Qubit+Driven
-/controls?name=Single-Qubit+Driven&type=Primitive&maximum_rabi_rate=1&polar_angle=0.34
+/controls                               # list all controls
+/controls?name=Single-Qubit+Driven      # list controls with name "Single-Qubit Driven"
+/controls?name=Single-Qubit+Driven&type=Primitive&maximum_rabi_rate=1&polar_angle=0.34    # list controls that satisfy all the query parameters
 ```
 
 ### Get a specific control
@@ -67,7 +68,7 @@ Delete a control identified in id. Note that the control must exist and the auth
 ```
 POST /controls-csv
 ```
-Bulk upload controls for the authenticated user. The CSV file must have the attribute names of a control as the header names, and following the constraints on each attribute. A sample CSV file can be found at [sample](https://github.com/qctrl/back-end-challenge/blob/master/assets/controls.csv).
+Bulk upload controls for the authenticated user. The CSV file must have the attribute names of a control as header names, and following the constraints on each attribute. A sample CSV file can be found at [sample](https://github.com/qctrl/back-end-challenge/blob/master/assets/controls.csv).
 
 ### Download controls in CSV format
 ```
@@ -77,5 +78,6 @@ Download all controls ownd by the authenticated user. You can also filter the re
 #### Parameters
 Any of the attribute names. Examples:
 ```
-/controls-csv?name=Single-Qubit+Driven
-/controls-csv?name=Single-Qubit+Driven&type=Primitive&maximum_rabi_rate=1&polar_angle=0.34
+/controls-csv                               # download all controls
+/controls-csv?name=Single-Qubit+Driven      # download controls with name "Single-Qubit Driven"
+/controls-csv?name=Single-Qubit+Driven&type=Primitive&maximum_rabi_rate=1&polar_angle=0.34    # download controls that satisfy all the query parameters
