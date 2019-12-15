@@ -10,7 +10,7 @@ Anonymous user can make `a maximum of 20 requests per minute`.
 
 Requests that return multiple items will be paginated to 5 items by default. You can specify further pages with the ?page[number]= parameter or set a custom page size up to 100 with the ?page[size] parameter.
 
-~~JWT stuff..~~ (maybe on next sprint)
+~~Authentication/JWT stuff..~~ (maybe on next sprint)
 
 Swagger documentation is available at swagger/.
 
@@ -72,15 +72,16 @@ GET /controls/csv
 ```
 Download all controls ~~ownd by the authenticated user. You can also filter the result with query parameters before downloading to reduce file size~~. A sample CSV file can be found at [sample](https://github.com/qctrl/back-end-challenge/blob/master/assets/controls.csv).
 
-## Install
+## Installation
 ```
-python3 -m venv env
-source env/bin/activate
-pip install -r requirements.txt
+$ python3 -m venv env
+$ source env/bin/activate
+$ pip install -r requirements.txt
 ```
 
-### Connect your database
-Create a data base called `pctrl`, then create a user `pctrluser`, grant all priviledges on database `pctrl` to `pctrluser`.
+### Connect to your database (PostgreSQL)
+Example instructions:
+Create a data base called `pctrl`, then create a user named`pctrluser`, then grant all priviledges on database `pctrl` to `pctrluser`.
 
 In q_ctrl_api/settings.py:
 ```
