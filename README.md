@@ -1,6 +1,6 @@
 # pctrl REST API v1
 
-[Installation](#Install)
+[Installation](#Installation)
 
 ## Overview
 
