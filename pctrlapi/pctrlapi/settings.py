@@ -39,10 +39,10 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'rest_framework',
-    'controls',
     'drf_yasg',
-
     'django_filters',
+
+    'controls',
 ]
 
 MIDDLEWARE = [
@@ -84,7 +84,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'pctrl',
         'USER': 'pctrluser',
-        'PASSWORD': '0340',
+        'PASSWORD': 'sample_password',
         'HOST': 'localhost',
         'PORT': '',
         'TEST': {
@@ -134,6 +134,12 @@ STATIC_URL = '/static/'
 
 REST_FRAMEWORK = {
     'PAGE_SIZE': 5,
+    'DEFAULT_THROTTLE_CLASSES': [
+        'rest_framework.throttling.AnonRateThrottle',
+    ],
+    'DEFAULT_THROTTLE_RATES': {
+        'anon': '20/minute',
+    },
     'EXCEPTION_HANDLER': 'rest_framework_json_api.exceptions.exception_handler',
     'DEFAULT_PAGINATION_CLASS':
         'rest_framework_json_api.pagination.JsonApiPageNumberPagination',
