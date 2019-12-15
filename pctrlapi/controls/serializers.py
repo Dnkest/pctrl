@@ -8,6 +8,7 @@ class ControlSerializer(json_api_serializers.ModelSerializer):
         fields = '__all__'
 
 class ControlCSVSerializer(serializers.ModelSerializer):
+    # A model for import/export
     class Meta:
         model = Control
         fields = ['name', 'type', 'maximum_rabi_rate', 'polar_angle']

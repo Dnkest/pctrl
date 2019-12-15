@@ -3,15 +3,20 @@ from django.contrib.auth.models import User
 from django.core.validators import MaxValueValidator, MinValueValidator
 
 class Control(models.Model):
+    PRIMITIVE = 'Primitive'
+    CORPSE = 'CORPSE'
+    GAUSSIAN = 'Gaussian'
+    CINBB = 'CinBB'
+    CINSK = 'CinSK'
     CONTROL_TYPES = [
-        ('PRIMITIVE', 'Primitive'),
-        ('CORPSE', 'CORPSE'),
-        ('GAUSSIAN', 'Gaussian'),
-        ('CINBB', 'CinBB'),
-        ('CINSK', 'CinSK')
+        (PRIMITIVE, 'Primitive'),
+        (CORPSE, 'CORPSE'),
+        (GAUSSIAN, 'Gaussian'),
+        (CINBB, 'CinBB'),
+        (CINSK, 'CinSK')
     ]
     id = models.AutoField(primary_key=True)
-    created_by = models.ForeignKey(User, on_delete=models.CASCADE)
+    #created_by = models.ForeignKey(User, on_delete=models.CASCADE)
     name = models.CharField(max_length=60)
     type = models.CharField(blank=False, choices=CONTROL_TYPES, max_length=60)
     maximum_rabi_rate = models.FloatField(
