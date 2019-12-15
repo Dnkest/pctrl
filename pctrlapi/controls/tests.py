@@ -64,7 +64,7 @@ class ControlDetailAPIViewTestCase(APITestCase):
         response = self.client.get(self.url)
         self.assertEqual(response.status_code, 200)
         response_data = json.loads(response.content)
-        self.assertEqual(data, response_data)
+        self.assertEqual(data.get('data').get('attributes'), response_data.get('data').get('attributes'))
     
     def test_update_control(self):
         """

@@ -4,15 +4,15 @@
 
 ## Overview
 
-For `POST`, `PUT`, `DELETE` requests, all data is sent and received as JSON with a Content-Type of 'application/vnd.api+json' and conform to the [JSON:API](https://jsonapi.org/) specification. For `GET` requests, any parameters not specified as a segment in the path can be passed as an HTTP query string parameter
+For `POST`, `PUT`, `DELETE` requests, all data is sent and received as JSON with a Content-Type of 'application/vnd.api+json' and conform to the [JSON:API](https://jsonapi.org/) specification. For `GET` requests, any parameters not specified as a segment in the path can be passed as an HTTP query string parameter.
 
-~~Rate limiting/API usage is subject to a number of throttles.~~
+Anonymous user can make `a maximum of 20 requests per minute`.
 
 Requests that return multiple items will be paginated to 5 items by default. You can specify further pages with the ?page[number]= parameter or set a custom page size up to 100 with the ?page[size] parameter.
 
-~~JWT stuff..~~
+~~JWT stuff..~~ (maybe on next sprint)
 
-swagger documentation is available at swagger/
+Swagger documentation is available at swagger/.
 
 ## Controls
 Below are the attributes of a control. All attributes are required.
@@ -44,19 +44,19 @@ Any of the attribute names. Examples:
 
 ### Get a specific control
 ```
-GET /controls/{controlId}
+GET /controls/:id
 ```
 Fetch a control identified in id. ~~Note that the authenticated user only have access to the controls they own.
 
 ### Update a specific control
 Update a control identified in id. Note that the control must exist ~~and the authenticated user may only alter the controls they own~~.
 ```
-PUT /controls/{controlId}
+PUT /controls/:id
 ```
 
 ### Delete a specific control
 ```
-DELETE /controls/{controlId}
+DELETE /controls/:id
 ```
 Delete a control identified in id. Note that the control must exist ~~and the authenticated user may only delete the controls they own~~.
 
@@ -74,11 +74,13 @@ Download all controls ~~ownd by the authenticated user. You can also filter the 
 
 ## Install
 ```
+python3 -m venv env
+source env/bin/activate
 pip install -r requirements.txt
 ```
 
 ### Connect your database
-Create a data base `pctrl`, create user `pctrluser`, grant all priviledges on database `pctrl` to `pctrluser`.
+Create a data base called `pctrl`, then create a user `pctrluser`, grant all priviledges on database `pctrl` to `pctrluser`.
 
 In q_ctrl_api/settings.py:
 ```
