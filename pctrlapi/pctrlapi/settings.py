@@ -40,6 +40,7 @@ INSTALLED_APPS = [
 
     'rest_framework',
     'controls',
+    'drf_yasg',
 
     'django_filters',
 ]
@@ -165,5 +166,6 @@ REST_FRAMEWORK = {
     'TEST_REQUEST_DEFAULT_FORMAT': (
         'vnd.api+json',
         'text/csv',
-    )
+    ),
+    'DEFAULT_SCHEMA_CLASS': 'rest_framework.schemas.coreapi.AutoSchema'
 }

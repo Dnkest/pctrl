@@ -8,17 +8,31 @@ from django_filters.rest_framework import DjangoFilterBackend
 from .models import Control
 from .serializers import ControlSerializer, ControlCSVSerializer
 
-class ControlListAPIView(ListCreateAPIView):
+class ControlListCreateAPIView(ListCreateAPIView):
+    """
+    List all controls [GET].
+    Create a new control [POST].
+    You can also filter the result with query parameters.
+    """
     queryset = Control.objects.all()
     serializer_class = ControlSerializer
     filter_backends = [DjangoFilterBackend]
     filterset_fields = ['name', 'type', 'maximum_rabi_rate', 'polar_angle']
 
 class ControlDetailAPIView(RetrieveUpdateDestroyAPIView):
+    """
+    Get a specific control [GET].
+    Update a specific control [PUT].
+    Delete a specific control [DELETE].
+    """
     queryset = Control.objects.all()
     serializer_class = ControlSerializer
 
-class ControlListCSVAPIView(ExportListImportCreateAPIView):
+class ControlExportListImportCreateAPIView(ExportListImportCreateAPIView):
+    """
+    Bulk upload controls in CSV format [POST].
+    Download controls in CSV format [GET].
+    """
     queryset = Control.objects.all()
     serializer_class = ControlCSVSerializer
     paginator = None    # dump all controls

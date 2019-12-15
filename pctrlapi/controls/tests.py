@@ -1,7 +1,6 @@
 import json
 import os
 from django.conf import settings
-from io import StringIO
 from django.urls import reverse
 from django.test import Client
 from rest_framework import status
