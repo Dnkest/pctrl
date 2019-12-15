@@ -21,8 +21,8 @@ Below are the attributes of a control. All attributes are required.
 |-------------------|--------|-------------|
 | name              | string | The name of the control (e.g. "Single-Qubit Driven"). |
 | type              | string | Valid control types are `Primitive, CORPSE, Gaussian, CinBB and CinSK`. |
-| maximum_rabi_rate | string | The maximum achievable angular frequency of the Rabi cycle for a driven quantum transition. This is `a number between 0 and 100`. |
-| polar_angle       | string | An angle measured from the z-axis on the Bloch sphere. This is `a number between 0 and 1` (units of pi). | 
+| maximum_rabi_rate | float  | The maximum achievable angular frequency of the Rabi cycle for a driven quantum transition. This is `a number between 0 and 100`. |
+| polar_angle       | float  | An angle measured from the z-axis on the Bloch sphere. This is `a number between 0 and 1` (units of pi). | 
 
 ### Create a new control
 ```
