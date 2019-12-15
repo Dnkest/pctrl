@@ -1,0 +1,4 @@
+name,maximum_rabi_rate,polar_angle,type
+fe,2.0,0.2,CinSK
+ef,5.0,0.5,Primitive
+ef,5.0,0.5,Primitive

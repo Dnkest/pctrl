@@ -21,7 +21,7 @@ class ControlDetailAPIView(RetrieveUpdateDestroyAPIView):
 class ControlListCSVAPIView(ExportListImportCreateAPIView):
     queryset = Control.objects.all()
     serializer_class = ControlCSVSerializer
-    paginator = None
+    paginator = None    # dump all controls
     filename = 'controls'
 
     # renderer classes used to render the content. will determine the file type of the download

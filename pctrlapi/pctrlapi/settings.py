@@ -86,6 +86,9 @@ DATABASES = {
         'PASSWORD': '0340',
         'HOST': 'localhost',
         'PORT': '',
+        'TEST': {
+            'NAME': 'test_controls',
+        },
     }
 }
 
@@ -159,5 +162,8 @@ REST_FRAMEWORK = {
     'TEST_REQUEST_RENDERER_CLASSES': (
         'rest_framework_json_api.renderers.JSONRenderer',
     ),
-    'TEST_REQUEST_DEFAULT_FORMAT': 'vnd.api+json'
+    'TEST_REQUEST_DEFAULT_FORMAT': (
+        'vnd.api+json',
+        'text/csv',
+    )
 }
