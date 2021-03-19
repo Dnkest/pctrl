@@ -5,7 +5,7 @@ coreapi==2.3.3
 coreschema==0.0.4
 Django==3.0
 django-filter==2.2.0
-djangorestframework==3.11.0
+djangorestframework==3.11.2
 djangorestframework-csv==2.1.0
 djangorestframework-files==1.1.0
 djangorestframework-jsonapi==3.0.0
